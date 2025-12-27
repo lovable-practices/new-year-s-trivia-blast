@@ -23,21 +23,26 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
       const randomId = unansweredIds[Math.floor(Math.random() * unansweredIds.length)];
       setSparklingCellId(randomId);
       
-      // Remove sparkle after animation
-      setTimeout(() => setSparklingCellId(null), 600);
+      // Remove sparkle after animation completes
+      setTimeout(() => setSparklingCellId(null), 1200);
     };
 
-    // Initial sparkle
-    const initialDelay = setTimeout(triggerRandomSparkle, 500);
+    // Initial sparkle after a delay
+    const initialDelay = setTimeout(triggerRandomSparkle, 1000);
 
-    // Random interval between 1-3 seconds
-    const interval = setInterval(() => {
-      triggerRandomSparkle();
-    }, 1000 + Math.random() * 2000);
+    // Random interval between 2-4 seconds
+    const scheduleNext = () => {
+      return setTimeout(() => {
+        triggerRandomSparkle();
+        timeoutRef = scheduleNext();
+      }, 2000 + Math.random() * 2000);
+    };
+
+    let timeoutRef = scheduleNext();
 
     return () => {
       clearTimeout(initialDelay);
-      clearInterval(interval);
+      clearTimeout(timeoutRef);
     };
   }, [unansweredIds.join(',')]);
 
