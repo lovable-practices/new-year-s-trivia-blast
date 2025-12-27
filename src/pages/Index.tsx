@@ -85,11 +85,6 @@ const Index = () => {
       {/* Question Modal */}
       {selectedQuestion && <QuestionModal question={selectedQuestion.question} categoryName={selectedQuestion.categoryName} onClose={handleCloseModal} onAnswered={handleAnswered} onShowAnswer={playFanfare} />}
 
-      {/* Decorative elements */}
-      <div className="fixed bottom-4 left-4 text-6xl opacity-50 pointer-events-none">🎄</div>
-      <div className="fixed bottom-4 right-4 text-6xl opacity-50 pointer-events-none">🎁</div>
-      <div className="fixed top-20 left-8 text-4xl opacity-30 pointer-events-none">⭐</div>
-      <div className="fixed top-32 right-12 text-4xl opacity-30 pointer-events-none">✨</div>
     </div>;
 };
 export default Index;
