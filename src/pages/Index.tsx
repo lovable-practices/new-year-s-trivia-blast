@@ -68,7 +68,7 @@ const Index = () => {
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 tracking-tight">
             <span className="text-accent">AI-блоггер</span>{" "}
-            <span className="text-primary-foreground">ИИГра</span>
+            <span className="text-primary-foreground">ИИгра</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl">
             🎄 Новогодний выпуск 2025 🎅
