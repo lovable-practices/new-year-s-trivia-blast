@@ -32,13 +32,13 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
     <>
       <Confetti isActive={showConfetti} />
       
-      <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-40 flex items-center justify-center p-4 animate-fade-in">
-        <div className="bg-card rounded-2xl border-2 border-primary/50 shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in">
+      <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-40 flex items-center justify-center p-4 animate-fade-in">
+        <div className="bg-card/80 backdrop-blur-xl rounded-2xl border border-primary/30 shadow-2xl shadow-primary/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in">
           {/* Header */}
-          <div className="bg-gradient-to-r from-primary to-primary/80 p-4 md:p-6 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-primary/60 backdrop-blur-sm p-4 md:p-6 rounded-t-2xl flex items-center justify-between border-b border-primary/20">
             <div>
-              <span className="text-accent text-sm md:text-base font-medium">{categoryName}</span>
-              <h2 className="text-primary-foreground text-2xl md:text-3xl font-bold">
+              <span className="text-accent text-sm md:text-base font-medium drop-shadow">{categoryName}</span>
+              <h2 className="text-primary-foreground text-2xl md:text-3xl font-bold drop-shadow-md">
                 {question.points} очков
               </h2>
             </div>
@@ -46,7 +46,7 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
               variant="ghost"
               size="icon"
               onClick={handleClose}
-              className="text-primary-foreground hover:bg-primary-foreground/20"
+              className="text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur-sm"
             >
               <X className="w-6 h-6" />
             </Button>
@@ -72,15 +72,15 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
             ) : (
               <div className="space-y-6 animate-fade-in">
                 {/* Answer */}
-                <div className="bg-accent/20 border-2 border-accent rounded-xl p-6">
-                  <h3 className="text-accent font-bold text-lg mb-2">Ответ:</h3>
+                <div className="bg-accent/15 backdrop-blur-sm border border-accent/40 rounded-xl p-6">
+                  <h3 className="text-accent font-bold text-lg mb-2 drop-shadow">Ответ:</h3>
                   <p className="text-foreground text-xl md:text-2xl font-medium">
                     {question.answer}
                   </p>
                 </div>
 
                 {/* Author */}
-                <div className="bg-primary/10 rounded-xl p-6">
+                <div className="bg-primary/15 backdrop-blur-sm border border-primary/30 rounded-xl p-6">
                   <h3 className="text-primary font-bold text-lg mb-2">Автор:</h3>
                   <p className="text-foreground text-xl font-medium">
                     {question.author} <span className="text-muted-foreground">({question.authorChannel})</span>
@@ -88,7 +88,7 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
                 </div>
 
                 {/* Full Post */}
-                <div className="bg-muted/50 rounded-xl p-6">
+                <div className="bg-muted/30 backdrop-blur-sm border border-muted/40 rounded-xl p-6">
                   <h3 className="text-foreground font-bold text-lg mb-3">Полный пост:</h3>
                   <p className="text-foreground/90 text-base md:text-lg leading-relaxed italic">
                     "{question.fullPost}"

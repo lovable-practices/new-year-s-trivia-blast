@@ -14,9 +14,9 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
         {categories.map((category) => (
           <div
             key={category.id}
-            className="bg-gradient-to-b from-primary/90 to-secondary rounded-lg p-2 md:p-4 text-center min-h-[60px] md:min-h-[80px] flex items-center justify-center border-2 border-accent/30 shadow-lg"
+            className="bg-primary/50 backdrop-blur-md rounded-xl p-2 md:p-4 text-center min-h-[60px] md:min-h-[80px] flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/20"
           >
-            <h2 className="text-xs md:text-sm lg:text-base font-bold text-primary-foreground leading-tight drop-shadow">
+            <h2 className="text-xs md:text-sm lg:text-base font-bold text-primary-foreground leading-tight drop-shadow-md">
               {category.name}
             </h2>
           </div>
