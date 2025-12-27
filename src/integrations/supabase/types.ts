@@ -44,7 +44,6 @@ export type Database = {
           created_at: string | null
           full_post: string | null
           id: string
-          is_answered: boolean | null
           points: number
           post_link: string | null
           question: string
@@ -57,7 +56,6 @@ export type Database = {
           created_at?: string | null
           full_post?: string | null
           id?: string
-          is_answered?: boolean | null
           points: number
           post_link?: string | null
           question: string
@@ -70,7 +68,6 @@ export type Database = {
           created_at?: string | null
           full_post?: string | null
           id?: string
-          is_answered?: boolean | null
           points?: number
           post_link?: string | null
           question?: string
