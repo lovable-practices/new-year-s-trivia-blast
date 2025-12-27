@@ -8,8 +8,8 @@ interface GameBoardProps {
 
 const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
   return (
-    <div className="w-full max-w-7xl mx-auto p-4">
-      <div className="grid grid-cols-6 gap-2 md:gap-3">
+    <div className="w-full max-w-7xl mx-auto p-4 festive-glow">
+      <div className="grid grid-cols-6 gap-2 md:gap-3 shadow-deep rounded-2xl p-3 md:p-4 bg-background/30 backdrop-blur-sm">
         {/* Category Headers */}
         {categories.map((category, colIndex) => (
           <div
