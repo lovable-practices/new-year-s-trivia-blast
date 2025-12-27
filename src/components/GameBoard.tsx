@@ -9,7 +9,7 @@ interface GameBoardProps {
 
 const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
   const [sparklingCellId, setSparklingCellId] = useState<string | null>(null);
-
+  const [sparkleDirection, setSparkleDirection] = useState<number>(0); // 0-7 for 8 directions
   // Get all unanswered question IDs
   const unansweredIds = categories
     .flatMap(cat => cat.questions)
@@ -21,7 +21,9 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
 
     const triggerRandomSparkle = () => {
       const randomId = unansweredIds[Math.floor(Math.random() * unansweredIds.length)];
+      const randomDirection = Math.floor(Math.random() * 8); // 8 possible directions
       setSparklingCellId(randomId);
+      setSparkleDirection(randomDirection);
       
       // Remove sparkle after animation completes
       setTimeout(() => setSparklingCellId(null), 1200);
@@ -76,6 +78,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
                 onClick={() => onQuestionClick(category.id, question.id)}
                 animationDelay={(rowIndex + 1) * 100 + colIndex * 50}
                 isSparkle={sparklingCellId === question.id}
+                sparkleDirection={sparkleDirection}
               />
             ) : null;
           })
