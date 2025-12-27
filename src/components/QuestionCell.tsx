@@ -14,20 +14,20 @@ const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellPro
       disabled={question.isAnswered}
       className={cn(
         "relative rounded-xl p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center border",
-        "transition-all duration-300",
+        "transition-all duration-300 animate-fade-in",
         question.isAnswered
-          ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed animate-fade-answered"
+          ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed"
           : [
               "bg-primary/40 backdrop-blur-md border-primary/30 shadow-lg shadow-primary/20 cursor-pointer",
               "hover:scale-105 hover:border-accent/50 hover:bg-primary/50",
-              "hover-glow animate-pulse-glow",
-              "active:scale-95",
-              "animate-fade-in opacity-0"
+              "hover-glow",
+              "active:scale-95"
             ]
       )}
       style={{ 
         animationDelay: `${animationDelay}ms`,
-        animationFillMode: 'forwards'
+        animationFillMode: 'forwards',
+        opacity: 0
       }}
     >
       <span
