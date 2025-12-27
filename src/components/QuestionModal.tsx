@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Question } from "@/types/game";
 import { Button } from "@/components/ui/button";
 import { X, ExternalLink, Sparkles } from "lucide-react";
@@ -15,6 +15,18 @@ interface QuestionModalProps {
 const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnswer }: QuestionModalProps) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+
+  // ESC key handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+    
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleShowAnswer = () => {
     setShowAnswer(true);
