@@ -244,18 +244,38 @@
     animation: shimmer 3s linear infinite;
   }
 
-  /* Sparkle overlay */
+  /* Sparkle overlay - single shimmer */
+  @keyframes shimmer-once {
+    0% {
+      background-position: -200% 0;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      background-position: 200% 0;
+      opacity: 0;
+    }
+  }
+
   .sparkle-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       45deg,
       transparent 40%,
-      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.3) 50%,
       transparent 60%
     );
     background-size: 200% 200%;
-    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-shimmer-once {
+    animation: shimmer-once 0.6s ease-out forwards;
   }
 
   /* Glow effect */
