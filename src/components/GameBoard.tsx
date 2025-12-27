@@ -37,7 +37,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
       return setTimeout(() => {
         triggerRandomSparkle();
         timeoutRef = scheduleNext();
-      }, 2000 + Math.random() * 2000);
+      }, 500 + Math.random() * 2500);
     };
 
     let timeoutRef = scheduleNext();
