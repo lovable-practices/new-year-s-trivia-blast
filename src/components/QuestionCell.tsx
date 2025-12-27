@@ -5,9 +5,10 @@ interface QuestionCellProps {
   question: Question;
   onClick: () => void;
   animationDelay?: number;
+  isSparkle?: boolean;
 }
 
-const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellProps) => {
+const QuestionCell = ({ question, onClick, animationDelay = 0, isSparkle = false }: QuestionCellProps) => {
   return (
     <button
       onClick={onClick}
@@ -39,10 +40,10 @@ const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellPro
         {question.points}
       </span>
       
-      {/* Sparkle effect for unanswered */}
-      {!question.isAnswered && (
+      {/* Random sparkle effect */}
+      {!question.isAnswered && isSparkle && (
         <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-          <div className="sparkle-overlay" />
+          <div className="sparkle-overlay animate-shimmer-once" />
         </div>
       )}
     </button>
