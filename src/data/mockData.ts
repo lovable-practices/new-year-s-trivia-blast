@@ -8,7 +8,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "ny1",
-          points: 10,
+          points: 100,
           question: "Этот блогер утверждал, что лучший подарок на Новый год — это...",
           answer: "Отписка от токсичных каналов",
           author: "Павел Дуров",
@@ -19,7 +19,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ny2",
-          points: 20,
+          points: 200,
           question: "По мнению этого автора, главная ошибка в новогоднюю ночь — это...",
           answer: "Смотреть телевизор вместо того, чтобы смотреть в глаза близким",
           author: "Артемий Лебедев",
@@ -30,7 +30,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ny3",
-          points: 30,
+          points: 300,
           question: "Этот пост о новогодних обещаниях содержал совет: 'Не обещайте себе...'",
           answer: "Не обещайте себе начать бегать, обещайте начать ходить",
           author: "Илья Варламов",
@@ -41,7 +41,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ny4",
-          points: 40,
+          points: 400,
           question: "Автор этого поста назвал оливье 'идеальным примером...'",
           answer: "Идеальным примером переоценённого legacy-кода в кулинарии",
           author: "Технарь",
@@ -52,7 +52,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ny5",
-          points: 50,
+          points: 500,
           question: "Этот блогер написал, что настоящее новогоднее чудо — это когда...",
           answer: "Когда код работает с первого раза в production в новогоднюю ночь",
           author: "DevOps Engineer",
@@ -69,7 +69,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "ch1",
-          points: 10,
+          points: 100,
           question: "По мнению этого автора, Дед Мороз — это первый в истории...",
           answer: "Первый в истории успешный стартап с вирусным маркетингом",
           author: "Startup Guru",
@@ -80,7 +80,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ch2",
-          points: 20,
+          points: 200,
           question: "Этот пост сравнивал рождественскую ёлку с...",
           answer: "С первой версией продукта — сначала кажется маленькой, но украшений всё больше",
           author: "Product Manager",
@@ -91,7 +91,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ch3",
-          points: 30,
+          points: 300,
           question: "Автор написал, что рождественские распродажи — это когда...",
           answer: "Когда ты покупаешь то, что не нужно, за деньги, которых нет",
           author: "Финансовый советник",
@@ -102,7 +102,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ch4",
-          points: 40,
+          points: 400,
           question: "Этот блогер сравнил написание открыток с...",
           answer: "С code review — никто не хочет делать, но все делают вид, что читают",
           author: "Senior Developer",
@@ -113,7 +113,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ch5",
-          points: 50,
+          points: 500,
           question: "Автор утверждал, что Санта использует...",
           answer: "Использует самый эффективный алгоритм маршрутизации в мире",
           author: "Algorithm Expert",
@@ -130,7 +130,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "m1",
-          points: 10,
+          points: 100,
           question: "Этот автор написал: 'Число Пи — это как...'",
           answer: "Как мой код — бесконечный и непредсказуемый",
           author: "Math Blogger",
@@ -141,7 +141,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "m2",
-          points: 20,
+          points: 200,
           question: "По мнению блогера, теорема Пифагора — это...",
           answer: "Единственное, что осталось от школьной математики",
           author: "Education Channel",
@@ -152,7 +152,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "m3",
-          points: 30,
+          points: 300,
           question: "Автор сравнил интегралы с...",
           answer: "С попыткой собрать IKEA без инструкции — теоретически возможно",
           author: "Physics Fun",
@@ -163,7 +163,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "m4",
-          points: 40,
+          points: 400,
           question: "Этот пост утверждал, что теория вероятностей...",
           answer: "Доказывает, что мой автобус всегда опаздывает именно когда я спешу",
           author: "Data Scientist",
@@ -174,7 +174,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "m5",
-          points: 50,
+          points: 500,
           question: "Блогер написал, что в современном мире математика нужна только для...",
           answer: "Только для того, чтобы понять, почему нейросеть ошиблась",
           author: "AI Researcher",
@@ -191,7 +191,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "ai1",
-          points: 10,
+          points: 100,
           question: "Этот автор написал: 'ChatGPT — это как...'",
           answer: "Как очень уверенный стажёр, который иногда несёт чушь",
           author: "Tech Reviewer",
@@ -202,7 +202,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ai2",
-          points: 20,
+          points: 200,
           question: "По мнению блогера, нейросети для генерации изображений...",
           answer: "Наконец дали художникам понять, как чувствуют себя программисты, когда приходит ChatGPT",
           author: "Designer Blog",
@@ -213,7 +213,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ai3",
-          points: 30,
+          points: 300,
           question: "Автор сравнил обучение нейросети с...",
           answer: "С воспитанием кота — делаешь всё правильно, но он всё равно делает по-своему",
           author: "ML Engineer",
@@ -224,7 +224,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ai4",
-          points: 40,
+          points: 400,
           question: "Этот пост утверждал, что AGI появится когда...",
           answer: "Когда AI научится понимать техническое задание от заказчика",
           author: "Futurist",
@@ -235,7 +235,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "ai5",
-          points: 50,
+          points: 500,
           question: "Блогер написал, что главная опасность AI — это не восстание машин, а...",
           answer: "А то, что он станет писать письма вместо нас так хорошо, что мы разучимся сами",
           author: "Philosophy of Tech",
@@ -252,7 +252,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "gpu1",
-          points: 10,
+          points: 100,
           question: "Этот автор написал: 'RTX 4090 — это как...'",
           answer: "Как Lamborghini для поездок в магазин — можно, но зачем",
           author: "Hardware Reviewer",
@@ -263,7 +263,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "gpu2",
-          points: 20,
+          points: 200,
           question: "По мнению блогера, дефицит видеокарт...",
           answer: "Научил геймеров ценить то, что имеешь, лучше любой философии",
           author: "Gaming Channel",
@@ -274,7 +274,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "gpu3",
-          points: 30,
+          points: 300,
           question: "Автор сравнил майнеров с...",
           answer: "С саранчой — налетели, сожрали все карты и улетели, оставив пустые полки",
           author: "Crypto Skeptic",
@@ -285,7 +285,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "gpu4",
-          points: 40,
+          points: 400,
           question: "Этот пост утверждал, что интегрированная графика Intel...",
           answer: "Достаточна для просмотра YouTube о тестах RTX 4090",
           author: "Budget PC",
@@ -296,7 +296,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "gpu5",
-          points: 50,
+          points: 500,
           question: "Блогер написал, что водяное охлаждение видеокарты — это для тех, кто...",
           answer: "Кто хочет превратить комнату в серверную, а потом удивляться счетам за электричество",
           author: "PC Enthusiast",
@@ -313,7 +313,7 @@ export const mockGameData: GameData = {
       questions: [
         {
           id: "b1",
-          points: 10,
+          points: 100,
           question: "Этот автор написал: 'Первая тысяча подписчиков — это...'",
           answer: "Это 500 ботов, 300 друзей и 200 случайных людей",
           author: "SMM Expert",
@@ -324,7 +324,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "b2",
-          points: 20,
+          points: 200,
           question: "По мнению блогера, самое сложное в ведении канала...",
           answer: "Не идеи, не тексты, а регулярность — писать когда не хочется",
           author: "Content Creator",
@@ -335,7 +335,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "b3",
-          points: 30,
+          points: 300,
           question: "Автор сравнил алгоритмы Telegram с...",
           answer: "С погодой — вроде есть закономерности, но никто не понимает какие",
           author: "Telegram Expert",
@@ -346,7 +346,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "b4",
-          points: 40,
+          points: 400,
           question: "Этот пост утверждал, что монетизация канала начинается когда...",
           answer: "Когда ты перестаёшь думать о монетизации и начинаешь думать о читателях",
           author: "Monetization Pro",
@@ -357,7 +357,7 @@ export const mockGameData: GameData = {
         },
         {
           id: "b5",
-          points: 50,
+          points: 500,
           question: "Блогер написал, что выгорание блогера — это когда...",
           answer: "Когда открываешь Telegram и вместо радости чувствуешь обязанность",
           author: "Mental Health",
