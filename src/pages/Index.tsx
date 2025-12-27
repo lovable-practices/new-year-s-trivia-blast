@@ -5,6 +5,8 @@ import GameBoard from "@/components/GameBoard";
 import QuestionModal from "@/components/QuestionModal";
 import Snowfall from "@/components/Snowfall";
 import { useSound } from "@/hooks/useSound";
+import { Button } from "@/components/ui/button";
+import { RotateCcw } from "lucide-react";
 
 const Index = () => {
   const [categories, setCategories] = useState<Category[]>(mockGameData.categories);
@@ -13,6 +15,14 @@ const Index = () => {
     categoryName: string;
   } | null>(null);
   const { playClick, playFanfare } = useSound();
+
+  const handleResetGame = () => {
+    playClick();
+    setCategories(mockGameData.categories.map(cat => ({
+      ...cat,
+      questions: cat.questions.map(q => ({ ...q, isAnswered: false }))
+    })));
+  };
 
 
   const handleAnswered = () => {
@@ -48,6 +58,19 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-primary/20 relative overflow-hidden">
       <Snowfall />
       
+      {/* Reset Button */}
+      <div className="fixed top-4 right-4 z-20">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleResetGame}
+          className="bg-primary/50 hover:bg-primary/70 text-primary-foreground border-primary/30"
+        >
+          <RotateCcw className="w-4 h-4 mr-2" />
+          Сброс
+        </Button>
+      </div>
+
       {/* Header */}
       <header className="relative z-10 py-6 md:py-8">
         <div className="text-center">
