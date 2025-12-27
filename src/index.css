@@ -134,6 +134,69 @@
     animation: confetti ease-out forwards;
   }
 
+  /* Confetti burst from all sides */
+  @keyframes confetti-burst {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+      transform: scale(1) rotate(45deg);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) translateX(calc(var(--sway-direction, 1) * 50px)) rotate(720deg);
+    }
+  }
+
+  .animate-confetti-burst {
+    animation: confetti-burst ease-out forwards;
+  }
+
+  /* Sparkle animation */
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    25% {
+      opacity: 1;
+      transform: scale(1) rotate(45deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) rotate(90deg);
+    }
+    75% {
+      opacity: 1;
+      transform: scale(1) rotate(135deg);
+    }
+  }
+
+  .animate-sparkle {
+    animation: sparkle ease-in-out infinite;
+  }
+
+  /* Streamer/spiral animation */
+  @keyframes streamer {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) translateX(0) rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(120vh) translateX(calc(var(--sway-direction, 1) * 100px)) rotate(360deg);
+    }
+  }
+
+  .animate-streamer {
+    animation: streamer ease-out forwards;
+  }
+
   /* Fade in animation */
   @keyframes fade-in {
     0% {
