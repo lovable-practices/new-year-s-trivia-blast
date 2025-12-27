@@ -75,7 +75,7 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
                 <Button
                   onClick={handleShowAnswer}
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover-bounce"
                 >
                   <Sparkles className="w-5 h-5 mr-2" />
                   Показать ответ
@@ -113,7 +113,7 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
                     href={question.postLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 hover-bounce shadow-lg"
                   >
                     <ExternalLink className="w-5 h-5" />
                     Открыть в Telegram
@@ -126,7 +126,7 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
                     onClick={handleClose}
                     variant="outline"
                     size="lg"
-                    className="text-lg px-8"
+                    className="text-lg px-8 hover-bounce"
                   >
                     Вернуться к игре
                   </Button>

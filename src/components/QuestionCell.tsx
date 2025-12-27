@@ -13,12 +13,17 @@ const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellPro
       onClick={onClick}
       disabled={question.isAnswered}
       className={cn(
-        "relative rounded-xl p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center transition-all duration-300 border",
-        "hover:scale-105 hover:shadow-2xl active:scale-95",
-        "animate-fade-in opacity-0",
+        "relative rounded-xl p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center border",
+        "transition-all duration-300",
         question.isAnswered
-          ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed opacity-40"
-          : "bg-primary/40 backdrop-blur-md border-primary/30 hover:border-accent/50 hover:bg-primary/50 shadow-lg shadow-primary/20 cursor-pointer"
+          ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed animate-fade-answered"
+          : [
+              "bg-primary/40 backdrop-blur-md border-primary/30 shadow-lg shadow-primary/20 cursor-pointer",
+              "hover:scale-105 hover:border-accent/50 hover:bg-primary/50",
+              "hover-glow animate-pulse-glow",
+              "active:scale-95",
+              "animate-fade-in opacity-0"
+            ]
       )}
       style={{ 
         animationDelay: `${animationDelay}ms`,
@@ -27,7 +32,7 @@ const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellPro
     >
       <span
         className={cn(
-          "text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg",
+          "text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg transition-all duration-300",
           question.isAnswered ? "text-muted-foreground" : "text-accent"
         )}
       >
