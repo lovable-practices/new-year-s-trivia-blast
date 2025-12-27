@@ -93,7 +93,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
         ))}
 
         {/* Question Grid */}
-        {[10, 20, 30, 40, 50].map((points, rowIndex) => (
+        {[100, 200, 300, 400, 500].map((points, rowIndex) => (
           categories.map((category, colIndex) => {
             const question = category.questions.find((q) => q.points === points);
             return question ? (
