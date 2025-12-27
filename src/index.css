@@ -244,38 +244,106 @@
     animation: shimmer 3s linear infinite;
   }
 
-  /* Sparkle overlay - smooth full shimmer from edge to edge */
-  @keyframes shimmer-once {
-    0% {
-      left: -50%;
-    }
-    100% {
-      left: 150%;
-    }
-  }
-
-  .sparkle-overlay {
+  /* Shimmer animations for 8 directions */
+  .shimmer-container {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    pointer-events: none;
   }
 
-  .animate-shimmer-once::after {
-    content: '';
+  .shimmer-beam {
     position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 30%;
-    height: 120%;
+    width: 50%;
+    height: 200%;
+    top: -50%;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0.4) 50%,
       transparent 100%
     );
-    transform: skewX(-15deg);
-    animation: shimmer-once 1s ease-in-out forwards;
+  }
+
+  /* Direction 0: left to right */
+  .shimmer-dir-0 .shimmer-beam {
+    animation: shimmer-lr 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-lr {
+    0% { left: -50%; }
+    100% { left: 150%; }
+  }
+
+  /* Direction 1: top-left to bottom-right (diagonal) */
+  .shimmer-dir-1 .shimmer-beam {
+    transform: rotate(45deg);
+    animation: shimmer-tlbr 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-tlbr {
+    0% { left: -100%; top: -100%; }
+    100% { left: 150%; top: 150%; }
+  }
+
+  /* Direction 2: top to bottom */
+  .shimmer-dir-2 .shimmer-beam {
+    width: 200%;
+    height: 50%;
+    left: -50%;
+    animation: shimmer-tb 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-tb {
+    0% { top: -50%; }
+    100% { top: 150%; }
+  }
+
+  /* Direction 3: top-right to bottom-left */
+  .shimmer-dir-3 .shimmer-beam {
+    transform: rotate(-45deg);
+    animation: shimmer-trbl 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-trbl {
+    0% { left: 150%; top: -100%; }
+    100% { left: -100%; top: 150%; }
+  }
+
+  /* Direction 4: right to left */
+  .shimmer-dir-4 .shimmer-beam {
+    animation: shimmer-rl 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-rl {
+    0% { left: 150%; }
+    100% { left: -50%; }
+  }
+
+  /* Direction 5: bottom-right to top-left */
+  .shimmer-dir-5 .shimmer-beam {
+    transform: rotate(45deg);
+    animation: shimmer-brtl 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-brtl {
+    0% { left: 150%; top: 150%; }
+    100% { left: -100%; top: -100%; }
+  }
+
+  /* Direction 6: bottom to top */
+  .shimmer-dir-6 .shimmer-beam {
+    width: 200%;
+    height: 50%;
+    left: -50%;
+    animation: shimmer-bt 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-bt {
+    0% { top: 150%; }
+    100% { top: -50%; }
+  }
+
+  /* Direction 7: bottom-left to top-right */
+  .shimmer-dir-7 .shimmer-beam {
+    transform: rotate(-45deg);
+    animation: shimmer-bltr 1s ease-in-out forwards;
+  }
+  @keyframes shimmer-bltr {
+    0% { left: -100%; top: 150%; }
+    100% { left: 150%; top: -100%; }
   }
 
   /* Glow effect */
