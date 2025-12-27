@@ -12,11 +12,11 @@ const QuestionCell = ({ question, onClick }: QuestionCellProps) => {
       onClick={onClick}
       disabled={question.isAnswered}
       className={cn(
-        "relative rounded-lg p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center transition-all duration-300 border-2",
-        "hover:scale-105 hover:shadow-xl active:scale-95",
+        "relative rounded-xl p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center transition-all duration-300 border",
+        "hover:scale-105 hover:shadow-2xl active:scale-95",
         question.isAnswered
-          ? "bg-muted/30 border-muted cursor-not-allowed opacity-40"
-          : "bg-gradient-to-br from-primary to-secondary border-primary/50 hover:border-accent shadow-lg cursor-pointer animate-pulse-glow"
+          ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed opacity-40"
+          : "bg-primary/40 backdrop-blur-md border-primary/30 hover:border-accent/50 hover:bg-primary/50 shadow-lg shadow-primary/20 cursor-pointer"
       )}
     >
       <span
