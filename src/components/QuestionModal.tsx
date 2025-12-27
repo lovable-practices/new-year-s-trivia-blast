@@ -9,15 +9,17 @@ interface QuestionModalProps {
   categoryName: string;
   onClose: () => void;
   onAnswered: () => void;
+  onShowAnswer?: () => void;
 }
 
-const QuestionModal = ({ question, categoryName, onClose, onAnswered }: QuestionModalProps) => {
+const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnswer }: QuestionModalProps) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
   const handleShowAnswer = () => {
     setShowAnswer(true);
     setShowConfetti(true);
+    onShowAnswer?.();
     onAnswered();
   };
 
