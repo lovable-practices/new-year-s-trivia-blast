@@ -1,15 +1,19 @@
 import { Question } from "@/types/game";
 import { cn } from "@/lib/utils";
 
+interface Sparkle {
+  key: string;
+  direction: number;
+}
+
 interface QuestionCellProps {
   question: Question;
   onClick: () => void;
   animationDelay?: number;
-  isSparkle?: boolean;
-  sparkleDirection?: number;
+  sparkles?: Sparkle[];
 }
 
-const QuestionCell = ({ question, onClick, animationDelay = 0, isSparkle = false, sparkleDirection = 0 }: QuestionCellProps) => {
+const QuestionCell = ({ question, onClick, animationDelay = 0, sparkles = [] }: QuestionCellProps) => {
   return (
     <button
       onClick={onClick}
@@ -41,15 +45,18 @@ const QuestionCell = ({ question, onClick, animationDelay = 0, isSparkle = false
         {question.points}
       </span>
       
-      {/* Random sparkle effect */}
-      {!question.isAnswered && isSparkle && (
-        <div className={cn(
-          "shimmer-container",
-          `shimmer-dir-${sparkleDirection}`
-        )}>
+      {/* Random sparkle effects - can have multiple */}
+      {!question.isAnswered && sparkles.map(sparkle => (
+        <div 
+          key={sparkle.key}
+          className={cn(
+            "shimmer-container",
+            `shimmer-dir-${sparkle.direction}`
+          )}
+        >
           <div className="shimmer-beam" />
         </div>
-      )}
+      ))}
     </button>
   );
 };
