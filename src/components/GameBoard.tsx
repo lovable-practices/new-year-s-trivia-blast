@@ -75,7 +75,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
-      <div className="grid grid-cols-6 gap-2 md:gap-3 shadow-deep rounded-2xl p-3 md:p-4 bg-background/30 backdrop-blur-sm">
+      <div className="grid grid-cols-5 gap-2 md:gap-3 shadow-deep rounded-2xl p-3 md:p-4 bg-background/30 backdrop-blur-sm">
         {/* Category Headers */}
         {categories.map((category, colIndex) => (
           <div
@@ -104,7 +104,12 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
                 animationDelay={(rowIndex + 1) * 100 + colIndex * 50}
                 sparkles={activeSparkles.filter(s => s.cellId === question.id)}
               />
-            ) : null;
+            ) : (
+              <div
+                key={`empty-${category.id}-${points}`}
+                className="rounded-xl bg-muted/20 min-h-[60px] md:min-h-[80px]"
+              />
+            );
           })
         ))}
       </div>
