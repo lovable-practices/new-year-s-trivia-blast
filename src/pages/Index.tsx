@@ -1,32 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { mockGameData } from "@/data/mockData";
 import { Category, Question } from "@/types/game";
 import GameBoard from "@/components/GameBoard";
 import QuestionModal from "@/components/QuestionModal";
 import Snowfall from "@/components/Snowfall";
 import { useSound } from "@/hooks/useSound";
-import { Volume2, VolumeX } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 const Index = () => {
   const [categories, setCategories] = useState<Category[]>(mockGameData.categories);
   const [selectedQuestion, setSelectedQuestion] = useState<{
     question: Question;
     categoryName: string;
   } | null>(null);
-  const [musicEnabled, setMusicEnabled] = useState(false);
-  const { playClick, playFanfare, playBackgroundMusic, stopBackgroundMusic } = useSound();
-
-  useEffect(() => {
-    if (musicEnabled) {
-      playBackgroundMusic();
-    } else {
-      stopBackgroundMusic();
-    }
-  }, [musicEnabled, playBackgroundMusic, stopBackgroundMusic]);
-
-  const toggleMusic = () => {
-    setMusicEnabled(!musicEnabled);
-  };
+  const { playClick, playFanfare } = useSound();
 
 
   const handleAnswered = () => {
@@ -74,17 +60,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Music Toggle */}
-      <div className="fixed top-4 right-4 z-20">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleMusic}
-          className="bg-primary/50 hover:bg-primary/70 text-primary-foreground rounded-full"
-        >
-          {musicEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
-        </Button>
-      </div>
 
       {/* Game Board */}
       <main className="relative z-10 pb-8">
