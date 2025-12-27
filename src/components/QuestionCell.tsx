@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 interface QuestionCellProps {
   question: Question;
   onClick: () => void;
+  animationDelay?: number;
 }
 
-const QuestionCell = ({ question, onClick }: QuestionCellProps) => {
+const QuestionCell = ({ question, onClick, animationDelay = 0 }: QuestionCellProps) => {
   return (
     <button
       onClick={onClick}
@@ -14,10 +15,15 @@ const QuestionCell = ({ question, onClick }: QuestionCellProps) => {
       className={cn(
         "relative rounded-xl p-4 md:p-6 min-h-[60px] md:min-h-[80px] flex items-center justify-center transition-all duration-300 border",
         "hover:scale-105 hover:shadow-2xl active:scale-95",
+        "animate-fade-in opacity-0",
         question.isAnswered
           ? "bg-muted/20 backdrop-blur-sm border-muted/30 cursor-not-allowed opacity-40"
           : "bg-primary/40 backdrop-blur-md border-primary/30 hover:border-accent/50 hover:bg-primary/50 shadow-lg shadow-primary/20 cursor-pointer"
       )}
+      style={{ 
+        animationDelay: `${animationDelay}ms`,
+        animationFillMode: 'forwards'
+      }}
     >
       <span
         className={cn(
@@ -30,7 +36,7 @@ const QuestionCell = ({ question, onClick }: QuestionCellProps) => {
       
       {/* Sparkle effect for unanswered */}
       {!question.isAnswered && (
-        <div className="absolute inset-0 rounded-lg overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
           <div className="sparkle-overlay" />
         </div>
       )}
