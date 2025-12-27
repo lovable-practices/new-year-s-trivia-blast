@@ -66,7 +66,9 @@ const Index = () => {
       {/* Header */}
       <header className="relative z-10 py-6 md:py-8">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-2 tracking-tight">AI-блоггер ИИГРА<span className="text-accent">AI-блоггер</span> ИГРА
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 tracking-tight">
+            <span className="text-accent">AI-блоггер</span>{" "}
+            <span className="text-primary-foreground">ИИГра</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl">
             🎄 Новогодний выпуск 2025 🎅
