@@ -1,6 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Category } from "@/types/game";
 import QuestionCell from "./QuestionCell";
+
+interface ActiveSparkle {
+  key: string;
+  cellId: string;
+  direction: number;
+}
 
 interface GameBoardProps {
   categories: Category[];
@@ -8,8 +14,14 @@ interface GameBoardProps {
 }
 
 const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
-  const [sparklingCellId, setSparklingCellId] = useState<string | null>(null);
-  const [sparkleDirection, setSparkleDirection] = useState<number>(0); // 0-7 for 8 directions
+  const [activeSparkles, setActiveSparkles] = useState<ActiveSparkle[]>([]);
+  const activeSparklesRef = useRef<ActiveSparkle[]>([]);
+  
+  // Keep ref in sync with state
+  useEffect(() => {
+    activeSparklesRef.current = activeSparkles;
+  }, [activeSparkles]);
+
   // Get all unanswered question IDs
   const unansweredIds = categories
     .flatMap(cat => cat.questions)
@@ -20,19 +32,32 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
     if (unansweredIds.length === 0) return;
 
     const triggerRandomSparkle = () => {
-      const randomId = unansweredIds[Math.floor(Math.random() * unansweredIds.length)];
-      const randomDirection = Math.floor(Math.random() * 8); // 8 possible directions
-      setSparklingCellId(randomId);
-      setSparkleDirection(randomDirection);
+      // Get IDs of cells with active sparkles (use ref for current value)
+      const activeCellIds = activeSparklesRef.current.map(s => s.cellId);
       
-      // Remove sparkle after animation completes
-      setTimeout(() => setSparklingCellId(null), 1200);
+      // Filter: only cells without active sparkle
+      const availableIds = unansweredIds.filter(id => !activeCellIds.includes(id));
+      
+      // If no available cells — do nothing
+      if (availableIds.length === 0) return;
+
+      const randomId = availableIds[Math.floor(Math.random() * availableIds.length)];
+      const randomDirection = Math.floor(Math.random() * 8);
+      const sparkleKey = `${Date.now()}-${Math.random()}`;
+      
+      // Add new sparkle without removing previous ones
+      setActiveSparkles(prev => [...prev, { key: sparkleKey, cellId: randomId, direction: randomDirection }]);
+      
+      // Remove THIS specific sparkle after animation completes
+      setTimeout(() => {
+        setActiveSparkles(prev => prev.filter(s => s.key !== sparkleKey));
+      }, 1200);
     };
 
     // Initial sparkle after a delay
     const initialDelay = setTimeout(triggerRandomSparkle, 1000);
 
-    // Random interval between 2-4 seconds
+    // Random interval between 0.5-3 seconds
     const scheduleNext = () => {
       return setTimeout(() => {
         triggerRandomSparkle();
@@ -77,8 +102,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
                 question={question}
                 onClick={() => onQuestionClick(category.id, question.id)}
                 animationDelay={(rowIndex + 1) * 100 + colIndex * 50}
-                isSparkle={sparklingCellId === question.id}
-                sparkleDirection={sparkleDirection}
+                sparkles={activeSparkles.filter(s => s.cellId === question.id)}
               />
             ) : null;
           })
