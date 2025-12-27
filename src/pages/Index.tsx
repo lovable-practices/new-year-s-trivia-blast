@@ -28,13 +28,6 @@ const Index = () => {
     setMusicEnabled(!musicEnabled);
   };
 
-  const handleQuestionClick = (categoryId: string, questionId: string) => {
-    const category = categories.find((c) => c.id === categoryId);
-    const question = category?.questions.find((q) => q.id === questionId);
-    if (category && question && !question.isAnswered) {
-      setSelectedQuestion({ question, categoryName: category.name });
-    }
-  };
 
   const handleAnswered = () => {
     if (!selectedQuestion) return;
@@ -52,7 +45,17 @@ const Index = () => {
   };
 
   const handleCloseModal = () => {
+    playClick();
     setSelectedQuestion(null);
+  };
+
+  const handleOpenModal = (categoryId: string, questionId: string) => {
+    const category = categories.find((c) => c.id === categoryId);
+    const question = category?.questions.find((q) => q.id === questionId);
+    if (category && question && !question.isAnswered) {
+      playClick();
+      setSelectedQuestion({ question, categoryName: category.name });
+    }
   };
 
   return (
@@ -85,7 +88,7 @@ const Index = () => {
 
       {/* Game Board */}
       <main className="relative z-10 pb-8">
-        <GameBoard categories={categories} onQuestionClick={handleQuestionClick} onCellClick={playClick} />
+        <GameBoard categories={categories} onQuestionClick={handleOpenModal} />
       </main>
 
       {/* Question Modal */}
