@@ -14,7 +14,77 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      categories: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string
+          sort_order: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name: string
+          sort_order?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      questions: {
+        Row: {
+          answer: string
+          author: string | null
+          author_channel: string | null
+          category_id: string
+          created_at: string | null
+          full_post: string | null
+          id: string
+          is_answered: boolean | null
+          points: number
+          post_link: string | null
+          question: string
+        }
+        Insert: {
+          answer: string
+          author?: string | null
+          author_channel?: string | null
+          category_id: string
+          created_at?: string | null
+          full_post?: string | null
+          id?: string
+          is_answered?: boolean | null
+          points: number
+          post_link?: string | null
+          question: string
+        }
+        Update: {
+          answer?: string
+          author?: string | null
+          author_channel?: string | null
+          category_id?: string
+          created_at?: string | null
+          full_post?: string | null
+          id?: string
+          is_answered?: boolean | null
+          points?: number
+          post_link?: string | null
+          question?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "questions_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
