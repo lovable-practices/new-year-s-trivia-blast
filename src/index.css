@@ -262,4 +262,59 @@
   .glow {
     box-shadow: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
   }
+
+  /* Pulse glow animation for active cells */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px hsl(var(--accent) / 0.3), 0 0 20px hsl(var(--primary) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Hover glow effect */
+  .hover-glow:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.6), 0 0 50px hsl(var(--primary) / 0.4);
+  }
+
+  /* Fade out animation for answered cells */
+  @keyframes fade-answered {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: scale(1.05);
+      filter: brightness(1.3);
+    }
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+      filter: brightness(0.7) grayscale(0.5);
+    }
+  }
+
+  .animate-fade-answered {
+    animation: fade-answered 0.6s ease-out forwards;
+  }
+
+  /* Subtle bounce on hover */
+  @keyframes subtle-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  .hover-bounce:hover {
+    animation: subtle-bounce 0.4s ease-in-out;
+  }
 }
