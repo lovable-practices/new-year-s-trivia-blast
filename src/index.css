@@ -244,30 +244,38 @@
     animation: shimmer 3s linear infinite;
   }
 
-  /* Sparkle overlay - smooth single shimmer */
+  /* Sparkle overlay - smooth full shimmer from edge to edge */
   @keyframes shimmer-once {
     0% {
-      background-position: -100% 0;
+      left: -50%;
     }
     100% {
-      background-position: 200% 0;
+      left: 150%;
     }
   }
 
   .sparkle-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      60deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.25) 50%,
-      transparent 70%
-    );
-    background-size: 200% 100%;
+    overflow: hidden;
+    pointer-events: none;
   }
 
-  .animate-shimmer-once {
-    animation: shimmer-once 1.2s ease-in-out forwards;
+  .animate-shimmer-once::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -50%;
+    width: 30%;
+    height: 120%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 100%
+    );
+    transform: skewX(-15deg);
+    animation: shimmer-once 1s ease-in-out forwards;
   }
 
   /* Glow effect */
