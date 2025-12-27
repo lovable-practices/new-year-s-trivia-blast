@@ -4,10 +4,9 @@ import QuestionCell from "./QuestionCell";
 interface GameBoardProps {
   categories: Category[];
   onQuestionClick: (categoryId: string, questionId: string) => void;
-  onCellClick?: () => void;
 }
 
-const GameBoard = ({ categories, onQuestionClick, onCellClick }: GameBoardProps) => {
+const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
       <div className="grid grid-cols-6 gap-2 md:gap-3">
@@ -31,10 +30,7 @@ const GameBoard = ({ categories, onQuestionClick, onCellClick }: GameBoardProps)
               <QuestionCell
                 key={question.id}
                 question={question}
-                onClick={() => {
-                  onCellClick?.();
-                  onQuestionClick(category.id, question.id);
-                }}
+                onClick={() => onQuestionClick(category.id, question.id)}
               />
             ) : null;
           })
