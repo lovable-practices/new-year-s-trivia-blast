@@ -75,7 +75,8 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
-      <div className="grid grid-cols-5 gap-2 md:gap-3 shadow-deep rounded-2xl p-3 md:p-4 bg-background/30 backdrop-blur-sm">
+      <div className="overflow-x-auto pb-2 -mb-2">
+        <div className="grid grid-cols-5 gap-2 md:gap-3 shadow-deep rounded-2xl p-3 md:p-4 bg-background/30 backdrop-blur-sm min-w-[600px] md:min-w-0">
         {/* Category Headers */}
         {categories.map((category, colIndex) => (
           <div
@@ -112,6 +113,7 @@ const GameBoard = ({ categories, onQuestionClick }: GameBoardProps) => {
             );
           })
         ))}
+        </div>
       </div>
     </div>
   );
