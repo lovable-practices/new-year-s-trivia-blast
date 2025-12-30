@@ -94,9 +94,25 @@ const QuestionModal = ({ question, categoryName, onClose, onAnswered, onShowAnsw
                 {/* Author */}
                 <div className="bg-primary/15 backdrop-blur-sm border border-primary/30 rounded-xl p-6">
                   <h3 className="text-primary font-bold text-lg mb-2">Автор:</h3>
-                  <p className="text-foreground text-xl font-medium">
-                    {question.author} <span className="text-muted-foreground">({question.authorChannel})</span>
-                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={`https://t.me/${question.authorChannel.replace('@', '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground text-xl font-medium hover:text-primary transition-colors underline decoration-primary/50 hover:decoration-primary"
+                    >
+                      {question.author} <span className="text-muted-foreground">({question.authorChannel})</span>
+                    </a>
+                    <a
+                      href={question.postLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-primary/80 hover:bg-primary text-primary-foreground px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Смотреть в Телеграм
+                    </a>
+                  </div>
                 </div>
 
                 {/* Full Post */}
